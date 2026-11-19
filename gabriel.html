@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPonto Solidário - Parceiros</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    
+    <header class="cabecalho">
+        <div class="container">
+            <h1>EcoPonto Solidário</h1>
+            <nav class="menu">
+                <a href="index.html">Início</a>
+                <a href="micael.html">Solicitar Coleta</a>
+                <a href="pedro.html">Cadastrar Excedentes</a>
+                <a href="robson.html">Consultar Doações</a>
+                <a href="gabriel.html" class="ativo">Parceiros</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Diretório de Parceiros</h2>
+
+        <!-- Barra de Busca -->
+        <div class="barra-acoes">
+            <input type="text" id="campo-busca" onkeyup="filtrarParceiros()" placeholder="Buscar parceiros por nome ou bairro...">
+            <button type="button" onclick="filtrarParceiros()">Buscar</button>
+        </div>
+
+       
+        <p id="sem-resultados">Nenhum parceiro encontrado com esse termo.</p>
+
+        
+        <section class="grade-parceiros">
+
+           
+            <article class="cartao">
+                <div class="cartao-banner">Bom Preço</div>
+                <div class="cartao-corpo">
+                    <h3>Supermercado Bom Preço</h3>
+                    <p><strong>Endereço:</strong> Av. Central, 1450 - Centro</p>
+                    <p><strong>Telefone:</strong> (11) 3456-7890</p>
+                    <p class="tag-info">Supermercado • Parceiro Ativo</p>
+                </div>
+            </article>
+
+           
+            <article class="cartao">
+                <div class="cartao-banner cor-2">Pão Quente</div>
+                <div class="cartao-corpo">
+                    <h3>Padaria Pão Quente</h3>
+                    <p><strong>Endereço:</strong> Rua das Flores, 320 - Jardim Paulista</p>
+                    <p><strong>Telefone:</strong> (11) 98765-4321</p>
+                    <p class="tag-info">Padaria • Parceiro Ativo</p>
+                </div>
+            </article>
+
+            
+            <article class="cartao">
+                <div class="cartao-banner cor-3">Verde Vida</div>
+                <div class="cartao-corpo">
+                    <h3>Sacolão Verde Vida</h3>
+                    <p><strong>Endereço:</strong> Av. Brasil, 890 - Vila Nova</p>
+                    <p><strong>Telefone:</strong> (11) 3210-9988</p>
+                    <p class="tag-info">Hortifrúti • Parceiro Ativo</p>
+                </div>
+            </article>
+
+            
+            <article class="cartao">
+                <div class="cartao-banner cor-4">Sabor Caseiro</div>
+                <div class="cartao-corpo">
+                    <h3>Restaurante Sabor Caseiro</h3>
+                    <p><strong>Endereço:</strong> Rua XV de Novembro, 512 - Centro</p>
+                    <p><strong>Telefone:</strong> (11) 99123-4567</p>
+                    <p class="tag-info">Restaurante • Parceiro Ativo</p>
+                </div>
+            </article>
+
+            
+            <article class="cartao">
+                <div class="cartao-banner cor-2">Atacadão Economia</div>
+                <div class="cartao-corpo">
+                    <h3>Atacadão da Economia</h3>
+                    <p><strong>Endereço:</strong> Rodovia Estadual, Km 12 - Distrito Industrial</p>
+                    <p><strong>Telefone:</strong> (11) 3344-5566</p>
+                    <p class="tag-info">Atacadista • Parceiro Ativo</p>
+                </div>
+            </article>
+
+            
+            <article class="cartao">
+                <div class="cartao-banner">Doce Sabor</div>
+                <div class="cartao-corpo">
+                    <h3>Doce Sabor Confeitaria</h3>
+                    <p><strong>Endereço:</strong> Rua São João, 118 - Bela Vista</p>
+                    <p><strong>Telefone:</strong> (11) 97788-1122</p>
+                    <p class="tag-info">Confeitaria • Parceiro Ativo</p>
+                </div>
+            </article>
+
+            <!-- Parceiro 7 -->
+            <article class="cartao">
+                <div class="cartao-banner cor-4">Empório Natural</div>
+                <div class="cartao-corpo">
+                    <h3>Empório Grãos & Saúde</h3>
+                    <p><strong>Endereço:</strong> Av. Paulista, 2100 - Consolação</p>
+                    <p><strong>Telefone:</strong> (11) 3555-8899</p>
+                    <p class="tag-info">Produtos Naturais • Parceiro Ativo</p>
+                </div>
+            </article>
+
+           
+            <article class="cartao">
+                <div class="cartao-banner cor-3">Horta Urbana</div>
+                <div class="cartao-corpo">
+                    <h3>Mercadinho Horta Urbana</h3>
+                    <p><strong>Endereço:</strong> Rua das Acácias, 74 - Jardim América</p>
+                    <p><strong>Telefone:</strong> (11) 96655-4433</p>
+                    <p class="tag-info">Minimercado • Parceiro Ativo</p>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>EcoPonto Solidário &copy; 2026 - Todos os direitos reservados.</p>
+    </footer>
+ 
+    <script>
+        function filtrarParceiros() {
+            let texto = document.getElementById('campo-busca').value.toLowerCase();
+            let cartoes = document.querySelectorAll('.cartao');
+            let encontrou = false;
+
+            cartoes.forEach(function(cartao) {
+                let conteudo = cartao.textContent.toLowerCase();
+
+                if (conteudo.includes(texto)) {
+                    cartao.style.display = 'block';
+                    encontrou = true;
+                } else {
+                    cartao.style.display = 'none';
+                }
+            });
+
+            let aviso = document.getElementById('sem-resultados');
+            aviso.style.display = encontrou ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>
